@@ -3,6 +3,7 @@ var jMutants = {
     this.setupList(listSelector);
     this.setupTemplates();
     this.setupEventListeners();
+    this.loadStudents();
   },
 
   setupList: function(selector) {
@@ -15,7 +16,7 @@ var jMutants = {
 
   setupEventListeners: function() {
     var doc = $(document);
-    $('#load').on('click', this.loadStudents.bind(this));
+    // $('#load').on('click', this.loadStudents.bind(this));
     // $('form#mutant_form').on('submit', this.addMutantViaForm.bind(this));
     // $('#load').on('click', this.loadMutants.bind(this));
     // doc.on('click', '.mutant .edit', this.toggleEditable.bind(this));
@@ -36,8 +37,8 @@ var jMutants = {
   //   f.mutantName.focus();
   // },
 
-  loadStudents: function(ev) {
-    ev.preventDefault();
+  loadStudents: function() {
+    // ev.preventDefault();
     this.loadStudentsAjax();
   },
 
