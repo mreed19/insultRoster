@@ -9,7 +9,7 @@
   margin-bottom: 0;
 }
 
-.mutant {
+.student {
   border: 1px solid #ddd;
   height: 4rem;
   padding: .75rem 1.25rem;
@@ -17,30 +17,20 @@
   transition: 0.15s;
 }
 
-.mutant:hover .actions {
+.student:hover .actions {
   opacity: 1;
 }
 
-.mutant .input-group {
+.student .input-group {
   margin-bottom: 0;
 }
 
-span.mutant-name {
+span.student-name {
   line-height: 40px;
   padding: 1px 1px 1px 9px;
 }
 
-.mutant input[name=mutantName] {
-  line-height: inherit;
-  padding: 0 0 0 8px;
-}
-
-.mutant input[name=realName] {
-  line-height: inherit;
-  padding: 0 0 0 8px;
-}
-
-.mutant input[name=power] {
+.student input select {
   line-height: inherit;
   padding: 0 0 0 8px;
 }

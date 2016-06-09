@@ -1,5 +1,8 @@
 $(document).foundation();
 
 $(function() {
-  jMutants.init('#mutant_list');
+  jMutants.init( {
+      listSelector: '#insult_list',
+      selectSelector: '#student_select'
+  });
 });
