@@ -1,28 +1,30 @@
 var jMutants = {
-  init: function(listSelector) {
-    this.setupList(listSelector);
+  init: function(options) {
+    this.setupSelect(options.selectSelector);
+    this.setupList(options.listSelector);
     this.setupTemplates();
     this.setupEventListeners();
     this.loadStudents();
   },
 
-  setupList: function(selector) {
+  setupSelect: function(selector) {
     this.studentSelect = $(selector);
+  },
+
+  setupList: function(selector) {
+    this.insultList = $(selector);
   },
 
   setupTemplates: function() {
     this.studentOptionTemplate = $('.student.template').removeClass('template').detach();
+    this.insultListTemplate = $('.insult.template').removeClass('template').detach();
   },
 
   setupEventListeners: function() {
     var doc = $(document);
-    // $('#load').on('click', this.loadStudents.bind(this));
-    // $('form#mutant_form').on('submit', this.addMutantViaForm.bind(this));
+    $('form#insult_form').on('submit', this.addInsult.bind(this));
     // $('#load').on('click', this.loadMutants.bind(this));
-    // doc.on('click', '.mutant .edit', this.toggleEditable.bind(this));
     // doc.on('click', '.mutant .remove', this.removeMutant.bind(this));
-    // doc.on('click', '.mutant .cancel', this.toggleEditable.bind(this));
-    // doc.on('submit', '.mutant form', this.saveMutant.bind(this));
   },
 
   // addMutantViaForm: function(ev) {
@@ -37,13 +39,25 @@ var jMutants = {
   //   f.mutantName.focus();
   // },
 
+  addInsult: function(ev) {
+    ev.preventDefault();
+    var f = ev.currentTarget;
+    this.insultList.append(this.buildListItem({
+      studentName: $(f.student_select.selectedOptions).val()
+    }));
+  },
+
+  buildListItem: function(insult) {
+    var li = this.insultListTemplate.clone();
+    li.find('.student-name').text(insult.studentName);
+    return li.removeClass('hide');
+  },
+
   loadStudents: function() {
-    // ev.preventDefault();
     this.loadStudentsAjax();
   },
 
-  addStudent: function(student) {
-    // debugger;
+  addStudentToSelect: function(student) {
     var option = this.buildSelectOption(student);
     this.studentSelect.append(option);
   },
@@ -54,10 +68,5 @@ var jMutants = {
     option.text(student.name);
     return option.removeClass('hide');
   },
-
-  // removeMutant: function(ev) {
-  //   ev.preventDefault();
-  //   this.deleteMutantAjax($(ev.currentTarget).closest('li').attr('data-id'));
-  // },
 
 }
