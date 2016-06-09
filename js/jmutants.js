@@ -43,13 +43,14 @@ var jMutants = {
     ev.preventDefault();
     var f = ev.currentTarget;
     this.insultList.append(this.buildListItem({
-      studentName: $(f.student_select.selectedOptions).val()
+      studentName: $(f.student_select.selectedOptions).val(),
+      insult: $(f.insult_select.selectedOptions).val()
     }));
   },
 
   buildListItem: function(insult) {
     var li = this.insultListTemplate.clone();
-    li.find('.student-name').text(insult.studentName);
+    li.find('.student-name').text(insult.studentName + ' ' + insult.insult);
     return li.removeClass('hide');
   },
 
