@@ -6,11 +6,11 @@ var jMutants = {
   },
 
   setupList: function(selector) {
-    this.studentList = $(selector);
+    this.studentSelect = $(selector);
   },
 
   setupTemplates: function() {
-    this.studentListTemplate = $('.student.template').removeClass('template').detach();
+    this.studentOptionTemplate = $('.student.template').removeClass('template').detach();
   },
 
   setupEventListeners: function() {
@@ -42,14 +42,16 @@ var jMutants = {
   },
 
   addStudent: function(student) {
-    var li = this.buildListItem(student);
-      this.studentList.append(li);
+    // debugger;
+    var option = this.buildSelectOption(student);
+    this.studentSelect.append(option);
   },
 
-  buildListItem: function(student) {
-    var li = this.studentListTemplate.clone();
-    li.find('.student-name').text(student.name);
-    return li.attr('data-id', student.id).removeClass('hide');
+  buildSelectOption: function(student) {
+    var option = this.studentOptionTemplate.clone();
+    option.val(student.name);
+    option.text(student.name);
+    return option.removeClass('hide');
   },
 
   // removeMutant: function(ev) {
