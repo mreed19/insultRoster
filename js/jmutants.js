@@ -23,18 +23,6 @@ var jMutants = {
     doc.on('submit', '.mutant form', this.saveMutant.bind(this));
   },
 
-  createMutantAjax: function(mutant) {
-    $.post({
-      url: 'https://mutant-school.herokuapp.com/api/v1/mutants',
-      data: {
-        mutant: mutant
-      },
-      success: function(mutant) {
-        this.addMutant(mutant, false);
-      }.bind(this)
-    });
-  },
-
   addMutantViaForm: function(ev) {
     ev.preventDefault();
     var f = ev.currentTarget;
@@ -50,17 +38,6 @@ var jMutants = {
   loadMutants: function(ev) {
     ev.preventDefault();
     this.loadMutantsAjax();
-  },
-
-  loadMutantsAjax: function() {
-    $.get({
-      url: 'https://mutant-school.herokuapp.com/api/v1/mutants',
-      success:  function(mutants) {
-        $.each(mutants, function(i, mutant) {
-          this.addMutant(mutant, true);
-        }.bind(this));
-      }.bind(this)
-    });
   },
 
   addMutant: function(mutant, append) {
@@ -84,16 +61,6 @@ var jMutants = {
   removeMutant: function(ev) {
     ev.preventDefault();
     this.deleteMutantAjax($(ev.currentTarget).closest('li').attr('data-id'));
-  },
-
-  deleteMutantAjax(id) {
-    $.ajax( {
-      method: 'delete',
-      url: 'https://mutant-school.herokuapp.com/api/v1/mutants' + '/' + id,
-      success: function() {
-        $('li[data-id=' + id +']').remove();
-      }
-    });
   },
 
   toggleEditable: function(ev) {
@@ -137,17 +104,4 @@ var jMutants = {
     li.find('.mutant-real-name').text('[' + f.find('input[name="realName"]').val() + ']');
     li.find('.mutant-power').text('(' + f.find('input[name="power"]').val() + ')');
   },
-
-  editMutantAjax: function(mutant) {
-    $.ajax({
-      url: "https://mutant-school.herokuapp.com/api/v1/mutants/" + mutant.id,
-      method: "PUT",
-      data: {
-        mutant: mutant
-      },
-      // success: function(result) {
-      //   console.log(result);
-      // }
-    });
-  }
 }
