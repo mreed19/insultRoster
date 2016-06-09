@@ -15,12 +15,29 @@ var jMutants = {
 
   setupEventListeners: function() {
     var doc = $(document);
-    $('form#mutant_form').on('submit', this.addMutantViaForm.bind(this));
-    $('#load').on('click', this.loadMutants.bind(this));
-    doc.on('click', '.mutant .edit', this.toggleEditable.bind(this));
-    doc.on('click', '.mutant .remove', this.removeMutant.bind(this));
-    doc.on('click', '.mutant .cancel', this.toggleEditable.bind(this));
-    doc.on('submit', '.mutant form', this.saveMutant.bind(this));
+    $('a[data-remote="true"]').on('click', function(ev) {
+      ev.preventDefault();
+      $.get({
+        url: $(ev.currentTarget).attr('href'),
+        dataType: 'jsonp',
+        jsonpCallback: "callback",
+        context: this,
+        success: function(data) {
+          var list = $('#test');
+          if(data.students) {
+            $.each(data.students, function(i, student) {
+              list.append('<li>' + student.name + '</li>');
+            });
+          }
+        }
+      })
+    }.bind(this));
+    // $('form#mutant_form').on('submit', this.addMutantViaForm.bind(this));
+    // $('#load').on('click', this.loadMutants.bind(this));
+    // doc.on('click', '.mutant .edit', this.toggleEditable.bind(this));
+    // doc.on('click', '.mutant .remove', this.removeMutant.bind(this));
+    // doc.on('click', '.mutant .cancel', this.toggleEditable.bind(this));
+    // doc.on('submit', '.mutant form', this.saveMutant.bind(this));
   },
 
   addMutantViaForm: function(ev) {
