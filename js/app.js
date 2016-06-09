@@ -1,5 +1,5 @@
 $(document).foundation();
 
 $(function() {
-  jMutants.init('#mutant_list');
+  jMutants.init('#student_list');
 });

@@ -11,13 +11,19 @@ $.extend(jMutants, {
     });
   },
 
-  loadMutantsAjax: function() {
+  loadStudentsAjax: function() {
     $.get({
-      url: 'https://mutant-school.herokuapp.com/api/v1/mutants',
-      success:  function(mutants) {
-        $.each(mutants, function(i, mutant) {
-          this.addMutant(mutant, true);
-        }.bind(this));
+      url: 'http://davestrus.com/data/roster.json',
+      dataType: 'jsonp',
+      jsonpCallback: "callback",
+      context: this,
+      success: function(data) {
+        var list = $('#test');
+        if(data.students) {
+          $.each(data.students, function(i, student) {
+            this.addStudent(student);
+          }.bind(this));
+        }
       }.bind(this)
     });
   },
@@ -32,13 +38,4 @@ $.extend(jMutants, {
     });
   },
 
-  editMutantAjax: function(mutant) {
-    $.ajax({
-      url: "https://mutant-school.herokuapp.com/api/v1/mutants/" + mutant.id,
-      method: "PUT",
-      data: {
-        mutant: mutant
-      },
-    });
-  }
 });
