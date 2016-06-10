@@ -141,7 +141,7 @@ p {
   margin-bottom: 30px;
 }
 
-ul {
+ul.scroll{
   margin-top:0;
   padding-left:110px;
   text-align:center;
