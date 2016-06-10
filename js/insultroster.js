@@ -1,4 +1,4 @@
-var jMutants = {
+var insultRoster = {
   init: function(options) {
     this.setupSelect(options.selectSelector);
     this.setupList(options.listSelector);

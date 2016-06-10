@@ -1,4 +1,4 @@
-$.extend(jMutants, {
+$.extend(insultRoster, {
   loadStudentsAjax: function() {
     $.get({
       url: 'http://davestrus.com/data/roster.json',
