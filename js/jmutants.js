@@ -39,6 +39,7 @@ var jMutants = {
   buildListItem: function(insult) {
     var li = this.insultListTemplate.clone();
     var finalInsult;
+
     if(insult.starterInsult && insult.additionalInsult) {
       finalInsult = insult.studentName + ' ' + insult.starterInsult + ' and ' + insult.additionalInsult + '.';
       li.find('.student-name').text(finalInsult);
@@ -55,26 +56,24 @@ var jMutants = {
       finalInsult = insult.studentName + ' ' + insult.insult + '.';
       li.find('.student-name').text(finalInsult);
     }
-
-
-    jQuery.ajax({
-        url: "https://mutant-school.herokuapp.com/api/v1/mutants",
-        type: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        contentType: "application/json",
-        data: JSON.stringify({
-            "mutant": {
-                "eligibility_begins_at": "-",
-                "power": "-",
-                "may_advise_beginning_at": "-",
-                "eligibility_ends_at": "-",
-                "real_name": "-",
-                "mutant_name": finalInsult
-            }
-        })
-    });
+    // jQuery.ajax({
+    //     url: "https://mutant-school.herokuapp.com/api/v1/mutants",
+    //     type: "POST",
+    //     headers: {
+    //         "Content-Type": "application/json",
+    //     },
+    //     contentType: "application/json",
+    //     data: JSON.stringify({
+    //         "mutant": {
+    //             "eligibility_begins_at": "-",
+    //             "power": "-",
+    //             "may_advise_beginning_at": "-",
+    //             "eligibility_ends_at": "-",
+    //             "real_name": "-",
+    //             "mutant_name": finalInsult
+    //         }
+    //     })
+    // });
 
     return li.removeClass('hide');
   },

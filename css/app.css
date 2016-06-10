@@ -59,7 +59,10 @@ input:-ms-input-placeholder { /* Internet Explorer 10-11 */
 li {
   background-color: #009491;
   color: white;
+  margin-bottom: 15px;
+
 }
+
 
 .actions {
   float: right;
