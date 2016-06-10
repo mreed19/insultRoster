@@ -34,6 +34,7 @@ var insultRoster = {
       insult: f.insult_select.value,
       additionalInsult: f.insult_additional.value
     }));
+    f.reset();
   },
 
   buildListItem: function(insult) {
