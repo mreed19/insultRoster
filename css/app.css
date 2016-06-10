@@ -151,7 +151,7 @@ ul.scroll{
 
 ul li {
   line-height:40px;
-  margin:0;
+  margin-bottom:15px;
 }
 
 @keyframes opacity {
