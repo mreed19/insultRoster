@@ -4,12 +4,14 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Insult Roster!</title>
+    <title>We're here to help</title>
     <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/app.css">
   </head>
   <body>
+
+
     <div class="row">
       <div class="medium-offset-2 medium-8 columns">
         <h2>Insult Roster</h2>
@@ -18,10 +20,43 @@
             <select id="student_select">
               <option value="" class="student template hide clearfix"></option>
             </select>
-            <input type="text" name="insult_select" list="insult_datalist" placeholder="Type or select an insult" required>
-            <datalist id="insult_datalist">
-              <option value="eats poop">
+            <!-- <select id="student_option_1">
+              <option value="" disable selected hidden >Make an insult!</option>
+            </select> -->
+            <input type="text" name="insult_starter" list="insult_starterList" placeholder="Get started on an insult..." >
+            <datalist id="insult_starterList">
+              <option value="bought a"></option>
+              <option value="can't ">
+              <option value="doesn't ">
+              <option value="has a secret crush on ">
+              <option value="is terrified of ">
+              <option value="never " >
+              <option value="sweats whenever ">
+              <option value="wears lingerie while ">
+              <option value="went to ">
             </datalist>
+
+            <input type="text" name="insult_select" list="insult_datalist" placeholder="...or select one from us!" >
+            <datalist id="insult_datalist">
+
+              <option value="can't do a pushup">
+              <option value="doesn't deposit a percentage of earnings into a retirement plan">
+              <option value="doesn't know how to comment code properly">
+              <option value="has a secret crush on Davey">
+              <option value="has complete mastery over the oboe">
+              <option value="is literally a cannibal">
+              <option value="is physically unable to open jars">
+              <option value="refuses to stop using AIM">
+              <option value="listens to Daughtry">
+              <option value="still reads books">
+              <option value="sweats while pooping">
+              <option value="thinks Ayn Rand is great at character writing">
+              <option value="was assaulted by a flock of geese as a young child">
+              <option value="wears lingerie to family gatherings">
+              <option value="went to prom with a stick of butter">
+            </datalist>
+            <input type="text" name="insult_additional"  placeholder="Bonus insult">
+
             <div class="input-group-button">
               <button type="submit" class="success button expanded">Create Insult</button>
             </div>
