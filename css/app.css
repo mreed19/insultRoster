@@ -1,6 +1,65 @@
 #mutant_form > div {
   padding: 0;
 }
+title {
+  display:none;
+}
+h2 {
+  color: #EEEEEE;
+  text-align: center;
+  font-size: 70px;
+}
+body {
+    background-color: #373331;
+}
+head{
+  background-color: #ECFFFB;
+}
+header {
+    padding-top: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+select {
+  border: none;
+  background-color: transparent;
+  font-size: 20px;
+  font-weight: 300;
+  color:#EEEEEE;
+  background-color:#00ADB5;
+}
+
+input[type='text'] {
+
+  border: none;
+  background-color: transparent;
+  font-size: 20px;
+  font-weight: 300;
+  color: #393E46;
+  background-color: #00ADB5;
+}
+
+
+
+input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    #EEEEEE;
+}
+input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:   #EEEEEE;
+   opacity:  1;
+}
+input::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #EEEEEE;
+   opacity:  1;
+}
+input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    #EEEEEE;
+}
+
+li {
+  background-color: #009491;
+  color: white;
+}
 
 .actions {
   float: right;
