@@ -18,11 +18,12 @@
             <select id="student_select">
               <option value="" class="student template hide clearfix"></option>
             </select>
-            <select id="insult_select">
-              <option value="eats poop">eats poop</option>
-            </select>
+            <input type="text" name="insult_select" list="insult_datalist" placeholder="Type or select an insult" required>
+            <datalist id="insult_datalist">
+              <option value="eats poop">
+            </datalist>
             <div class="input-group-button">
-              <button type="submit" class="success button expanded">Create Mutant</button>
+              <button type="submit" class="success button expanded">Create Insult</button>
             </div>
           </div>
         </form>

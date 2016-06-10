@@ -23,28 +23,14 @@ var jMutants = {
   setupEventListeners: function() {
     var doc = $(document);
     $('form#insult_form').on('submit', this.addInsult.bind(this));
-    // $('#load').on('click', this.loadMutants.bind(this));
-    // doc.on('click', '.mutant .remove', this.removeMutant.bind(this));
   },
-
-  // addMutantViaForm: function(ev) {
-  //   ev.preventDefault();
-  //   var f = ev.currentTarget;
-  //   this.createMutantAjax({
-  //     mutant_name: f.mutantName.value,
-  //     real_name: f.realName.value,
-  //     power: f.power.value
-  //   });
-  //   f.reset();
-  //   f.mutantName.focus();
-  // },
 
   addInsult: function(ev) {
     ev.preventDefault();
     var f = ev.currentTarget;
     this.insultList.append(this.buildListItem({
       studentName: $(f.student_select.selectedOptions).val(),
-      insult: $(f.insult_select.selectedOptions).val()
+      insult: f.insult_select.value
     }));
   },
 
